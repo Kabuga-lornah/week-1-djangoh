@@ -1,0 +1,37 @@
+{% extends 'calorie_tracker/base.html' %}
+
+{% block content %}
+<h2 class="text-2xl mb-4">Today's Food Items</h2>
+
+<table class="w-full mb-4 table-auto border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border border-gray-300 px-4 py-2 text-left">Food</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Calories</th>
+            <th class="border border-gray-300 px-4 py-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for food in foods %}
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">{{ food.name }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ food.calories }}</td>
+            <td class="border border-gray-300 px-4 py-2 text-center">
+                <a href="{% url 'delete_food' food.pk %}" class="text-red-600 hover:underline">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3" class="text-center py-4">No food items added today.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p class="text-xl font-semibold mb-4">Total Calories: {{ total_calories }}</p>
+
+<div class="flex space-x-4">
+    <a href="{% url 'add_food' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Food</a>
+    <a href="{% url 'reset_calories' %}" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Reset</a>
+</div>
+{% endblock %}

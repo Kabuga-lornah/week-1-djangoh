@@ -1,0 +1,12 @@
+{% extends 'calorie_tracker/base.html' %}
+
+{% block content %}
+<h2 class="text-2xl mb-4">Add Food Item</h2>
+
+<form method="post" class="space-y-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add</button>
+    <a href="{% url 'food_list' %}" class="ml-4 text-gray-600 hover:underline">Cancel</a>
+</form>
+{% endblock %}
