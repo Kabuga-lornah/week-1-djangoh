@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://calories_a1sv_user:9FD25vK9PP3adXOm6lrFfGFJMS7YOThn@dpg-d0n4n4adbo4c73ej6btg-a.oregon-postgres.render.com/calories_a1sv')
+    'default': dj_database_url.parse('postgresql://calories_5ejp_user:vAoUeE8dCYzRiNTM8MgobkCH8eVpBCZe@dpg-d0ndf3emcj7s73dsh9dg-a.oregon-postgres.render.com/calories_5ejp')
 }
 
 
